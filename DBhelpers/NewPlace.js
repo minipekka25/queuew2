@@ -73,7 +73,7 @@ exports.NewPlace = async (data) =>{
    let item = await user
         .findOne({ address: data.returnValues.referrer })
         .populate({ path: "x3Matrix", model: x3matrix })
-        .populate({ path: "x6Matrix", model: x6matrix }).execPopulate()
+        .populate({ path: "x6Matrix", model: x6matrix })
 
     if(item){
         runSlot(item)
