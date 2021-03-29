@@ -30,7 +30,7 @@ exports.NewPlace = async (data) =>{
     let slippagedown = 0;
     let slippagepartner = 0;
 
-    await user
+    user
         .findOne({ address: data.returnValues.referrer })
         .populate({ path: "x3Matrix", model: x3matrix })
         .populate({ path: "x6Matrix", model: x6matrix }).exec((e, response)=> {if (e){
