@@ -36,9 +36,9 @@ exports.NewPlace = async (data) =>{
         .populate({ path: "x6Matrix", model: x6matrix }).exec((e, response)=> {if (e){
             console.log(e)
         }else{
-         
+         console.log('new place' + data.returnValues.place, data.returnValues.matrix, data.returnValues.referrer)
             runSlot(response)
-            console.log('new place' + data.returnValues.place)
+            
 
         }})
     
