@@ -78,8 +78,8 @@ exports.NewPlace = async (data) =>{
     if(item){
         runSlot(item)
     }
-
-    var runSlot= async (respdata)=>{
+    
+    async function runSlot(respdata){
          console.log('new place' + data.returnValues.place, data.returnValues.matrix, data.returnValues.referrer)
         try {
             let newSlotTxn = new slottxn({
