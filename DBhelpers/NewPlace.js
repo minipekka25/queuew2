@@ -36,7 +36,7 @@ exports.NewPlace = async (data) =>{
         .populate({ path: "x6Matrix", model: x6matrix }).exec((e, response)=> {if (e){
             console.log(e)
         }else{
-         console.log('new place' + data.returnValues.place, data.returnValues.matrix, data.returnValues.referrer)
+        
             runSlot(response)
             
 
@@ -83,6 +83,7 @@ exports.NewPlace = async (data) =>{
     
 
     runSlot= async (respdata)=>{
+         console.log('new place' + data.returnValues.place, data.returnValues.matrix, data.returnValues.referrer)
         try {
             let newSlotTxn = new slottxn({
                 transactionId: data.transactionHash,
@@ -98,7 +99,7 @@ exports.NewPlace = async (data) =>{
             });
             
             let createdSltTxn = await newSlotTxn.save();
-
+            
             let slothold = await slotholder.findOne({ user: data.returnValues.referrer, matrix: data.returnValues.matrix, level: data.returnValues.level, reinvest: data.returnValues.count })
 
             let slotplace
