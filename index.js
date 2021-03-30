@@ -22,7 +22,9 @@ const new_place_reinvest = new Queue('new_place_reinvest', queueConfig);
 const new_gft_loss_benechng = new Queue('new_gft_loss_benechng', queueConfig);
 
 
-
+app.get('/revive', async (req, res) => {
+    res.send('success')
+})
 
 
 
